@@ -1,52 +1,115 @@
-/* ==========================================
-   تحديثات التفاعل والتحسين البصري (Tech Baraem)
+==========================================
+   JavaScript Interactions for Tech Baraem (النسخة الراسخة)
+   Author: Antigravity AI
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // [البرامج السابقة موجودة هنا ...]
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    // حل مشكلة تكرار صورة جمعية براعم التكنولوجيا تلقائياً
-    // يقوم الكود بفحص الصور، وإذا كانت مكررة أو فارغة، يعوضها بصور تكنولوجية جذابة ومتنوعة
-    const galleryImages = document.querySelectorAll('.gallery-img');
-    const techPlaceholders = [
-        'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80', // روبوتات
-        'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', // برمجة
-        'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80', // إلكترونيات
-        'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80'  // تكنولوجيا حديثة
-    ];
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
 
-    let usedSrcs = [];
-
-    galleryImages.forEach((img, index) => {
-        let currentSrc = img.getAttribute('src');
-        
-        // إذا كانت الصورة مكررة أو تشير إلى نفس اللوجو/الصورة الأساسية في المعرض
-        if (usedSrcs.includes(currentSrc) || !currentSrc || currentSrc.includes('logo')) {
-            // استبدالها بصورة فريدة من القائمة التكنولوجية
-            const placeholderIndex = index % techPlaceholders.length;
-            img.src = techPlaceholders[placeholderIndex];
-        } else {
-            usedSrcs.push(currentSrc);
-        }
-    });
-
-    // إضافة تأثير ظهور تدريجي مريح ورائع لكروت الاتصال عند التمرير
-    const contactCards = document.querySelectorAll('.contact-btn');
-    contactCards.forEach((card, idx) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(15px)';
-        card.style.transition = `all 0.4s ease ${idx * 0.1}s`; // ظهور تتابعي احترافي
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
                 }
             });
-        }, { threshold: 0.1 });
+        });
+    }
+
+    // 2. Active Link on Scroll
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === #${current}) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // 3. Dynamic Typing Effect (Hero Section) - تم ضبط الأوقات ليصبح أكثر رزانة
+    const typingElement = document.getElementById('typing-text');
+    const words = ["الروبوتيك", "الذكاء الاصطناعي", "البرمجة", "إنترنت الأشياء", "الابتكار الرقمي"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 120;
+
+    function type() {
+        const currentWord = words[wordIndex];
         
-        observer.observe(card);
+        if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 60; 
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 150; // كتابة متزنة وهادئة
+        }
+
+        typingElement.classList.add('typing-cursor');
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2500; // وقوف طويل عند نهاية الكلمة لقراءتها بارتياح
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 600; 
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+    
+    if (typingElement) {
+        type();
+    }
+
+    // 4. Static Reveal (إلغاء التحليق العنيف للعناصر عند النزول)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                
+                // إظهار الأرقام مباشرة بشكل جامد واحترافي بدون عداد سريع ومزعج للعين
+                if (entry.target.classList.contains('stat-card')) {
+                    const counter = entry.target.querySelector('.stat-number-counter');
+                    if (counter) counter.textContent = counter.getAttribute('data-target');
+                }
+            }
+        });
+    }, { threshold: 0.05 });
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
     });
 });
