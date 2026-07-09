@@ -1,5 +1,5 @@
 /* ==========================================
-   JavaScript Interactions for Tech Baraem
+   JavaScript Interactions for Tech Baraem (النسخة الراسخة)
    Author: Antigravity AI
    ========================================== */
 
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close menu when link clicked (for mobile)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -55,13 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Dynamic Typing Effect (Hero Section)
+    // 3. Dynamic Typing Effect (Hero Section) - تم ضبط الأوقات ليصبح أكثر رزانة
     const typingElement = document.getElementById('typing-text');
     const words = ["الروبوتيك", "الذكاء الاصطناعي", "البرمجة", "إنترنت الأشياء", "الابتكار الرقمي"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typeSpeed = 100;
+    let typeSpeed = 120;
 
     function type() {
         const currentWord = words[wordIndex];
@@ -69,22 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDeleting) {
             typingElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
-            typeSpeed = 50; // faster deletion
+            typeSpeed = 60; 
         } else {
             typingElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
-            typeSpeed = 120; // normal typing
+            typeSpeed = 150; // كتابة متزنة وهادئة
         }
 
         typingElement.classList.add('typing-cursor');
 
         if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000; // Pause at the end of the word
+            typeSpeed = 2500; // وقوف طويل عند نهاية الكلمة لقراءتها بارتياح
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            typeSpeed = 500; // Pause before typing next word
+            typeSpeed = 600; 
         }
 
         setTimeout(type, typeSpeed);
@@ -94,154 +93,23 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    // 4. Scroll Reveal (Intersection Observer)
+    // 4. Static Reveal (إلغاء التحليق العنيف للعناصر عند النزول)
     const revealElements = document.querySelectorAll('.reveal');
-    
-    function animateCounter(card) {
-        const counter = card.querySelector('.stat-number-counter');
-        if (!counter) return;
-        
-        const target = +counter.getAttribute('data-target');
-        const duration = 2000; // 2 seconds animation
-        const startTime = performance.now();
-        
-        function update(currentTime) {
-            const elapsedTime = currentTime - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            
-            // easeOutQuad easing function
-            const easedProgress = progress * (2 - progress);
-            counter.textContent = Math.floor(easedProgress * target);
-            
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            } else {
-                counter.textContent = target;
-            }
-        }
-        
-        requestAnimationFrame(update);
-    }
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 
-                // Trigger counter if target is a stat card
+                // إظهار الأرقام مباشرة بشكل جامد واحترافي بدون عداد سريع ومزعج للعين
                 if (entry.target.classList.contains('stat-card')) {
-                    animateCounter(entry.target);
+                    const counter = entry.target.querySelector('.stat-number-counter');
+                    if (counter) counter.textContent = counter.getAttribute('data-target');
                 }
-                
-                observer.unobserve(entry.target); // Reveal once
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, { threshold: 0.05 });
 
     revealElements.forEach(element => {
         revealObserver.observe(element);
     });
-
-    // 5. Custom Interactive Particles Canvas
-    initParticles();
 });
-
-// Particle Background Engine (HTML5 Canvas)
-function initParticles() {
-    const container = document.getElementById('particles-container');
-    if (!container) return;
-
-    // Create Canvas Element
-    const canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.pointerEvents = 'none';
-    container.appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    
-    let width = (canvas.width = container.offsetWidth);
-    let height = (canvas.height = container.offsetHeight);
-
-    const particles = [];
-    const maxParticles = width < 768 ? 40 : 80; // less particles on mobile for performance
-    const connectionDistance = 120;
-
-    // Handle Resize
-    window.addEventListener('resize', () => {
-        width = canvas.width = container.offsetWidth;
-        height = canvas.height = container.offsetHeight;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.4;
-            this.vy = (Math.random() - 0.5) * 0.4;
-            this.radius = Math.random() * 2 + 1;
-            this.alpha = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            // Bounce off boundaries
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 242, 254, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    // Initialize Particle Pool
-    for (let i = 0; i < maxParticles; i++) {
-        particles.push(new Particle());
-    }
-
-    // Animation Loop
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        // Update & Draw Particles
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-
-        // Draw network connection lines
-        ctx.lineWidth = 0.5;
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < connectionDistance) {
-                    const alpha = (1 - dist / connectionDistance) * 0.15;
-                    ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-}
