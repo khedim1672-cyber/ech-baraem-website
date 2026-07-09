@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="الموقع الرسمي لجمعية براعم التكنولوجيا عشعاشة - ريادة في الروبوتيك والذكاء الاصطناعي والبرمجة">
+    <title>جمعية براعم التكنولوجيا عشعاشة | الروبوتيك والذكاء الاصطناعي</title>
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Subtle Tech Background Grid & Particles -->
+    <div class="tech-bg">
+        <div class="grid-lines"></div>
+        <div id="particles-container"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar-header">
+        <div class="container navbar-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/images/logo.jpg" alt="شعار جمعية براعم التكنولوجيا عشعاشة" class="logo-img">
+                <span class="logo-text">براعم التكنولوجيا</span>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link active">الرئيسية</a>
+                <a href="#about" class="nav-link">من نحن</a>
+                <a href="#activities" class="nav-link">مجالاتنا</a>
+                <a href="#gallery" class="nav-link">معرض الصور</a>
+                <a href="#contact" class="nav-link">اتصل بنا</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelx_YuxWbQEA3vVSFFusI6YDuSXDeUBsUZz4vZvL7jv8wKwg/viewform" target="_blank" class="btn-register-nav glow-btn">سجل الآن <i class="fas fa-user-plus"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge fade-in">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">جمعية براعم التكنولوجيا عشعاشة</span>
+                </div>
+                <h1 class="hero-title fade-in">
+                    نصنع قادة المستقبل في مجالي <br>
+                    <span class="highlight text-rotate" id="typing-text">الروبوتيك</span>
+                </h1>
+                <p class="hero-subtitle fade-in">
+                    نحن أول جمعية في بلدية عشعاشة تهتم بتمكين الأطفال والشباب في مجالات التكنولوجيا الحديثة، الروبوتات التعليمية، والذكاء الاصطناعي لصناعة جيل مبدع ومبتكر.
+                </p>
+                <div class="hero-actions fade-in">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSelx_YuxWbQEA3vVSFFusI6YDuSXDeUBsUZz4vZvL7jv8wKwg/viewform" target="_blank" class="btn-primary glow-btn">
+                        <span>سجل من هنا</span>
+                        <i class="fas fa-rocket"></i>
+                    </a>
+                    <a href="https://wa.me/213696760385" target="_blank" class="btn-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>تواصل معنا فوراً</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual fade-in">
+                <div class="visual-glow"></div>
+                <div class="main-visual-card fb-banner-card">
+                    <img src="assets/images/student_programming.jpg" alt="الصفحة الرسمية لبراعم التكنولوجيا عشعاشة" class="hero-fb-img">
+                    <div class="fb-badge">
+                        <i class="fab fa-facebook"></i>
+                        <span>الصفحة الرسمية على فيسبوك</span>
+                    </div>
+                    <div class="tech-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">AI</span>
+                            <span class="stat-lbl">ذكاء اصطناعي</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">ROBOT</span>
+                            <span class="stat-lbl">روبوتيك تعليمي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about" class="scroll-btn" aria-label="انزل للأسفل">
+                <i class="fas fa-chevron-down bouncing-arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">من نحن؟</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">تعرّف على رؤيتنا وأهدافنا في بناء جيل رقمي رائد</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-info-card reveal">
+                    <div class="card-icon-container">
+                        <i class="fas fa-brain-circuit icon-glow"></i>
+                    </div>
+                    <h3>رؤيتنا التكنولوجية</h3>
+                    <p>نسعى في جمعية براعم التكنولوجيا عشعاشة إلى خلق بيئة إبداعية تفاعلية تُحفّز عقول البراعم والشباب على التفكير النقدي وحل المشكلات من خلال التقنيات الحديثة والبرمجة والروبوتيك.</p>
+                </div>
+
+                <div class="about-info-card reveal">
+                    <div class="card-icon-container">
+                        <i class="fas fa-microchip icon-glow"></i>
+                    </div>
+                    <h3>ماذا نقدّم؟</h3>
+                    <p>ورشات تطبيقية مكثفة في تصميم وبرمجة الروبوتات، خوارزميات الذكاء الاصطناعي، وتطوير التفكير المنطقي، بالإضافة لتمثيل الجزائر في المحافل التكنولوجية الدولية والمحلية.</p>
+                </div>
+            </div>
+
+            <!-- Official Identity Accent -->
+            <div class="international-accent reveal">
+                <div class="accent-content">
+                    <span class="accent-badge"><i class="fas fa-shield-halved"></i> هويتنا الرسمية</span>
+                    <h3>جمعية براعم التكنولوجيا عشعاشة</h3>
+                    <p>نسعى لترسيخ التفكير العلمي والإبداعي لدى الأطفال والشباب، وبناء المهارات التقنية في مجالات الروبوتيك والذكاء الاصطناعي لتأهيلهم لمهن المستقبل وريادة الأعمال التكنولوجية.</p>
+                </div>
+                <div class="accent-visual">
+                    <img src="assets/images/official_logo.jpg" alt="الشعار الرسمي لجمعية براعم التكنولوجيا" class="accent-img">
+                    <div class="img-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Stat 1 -->
+                <div class="stat-card reveal">
+                    <div class="stat-icon-wrapper"><i class="fas fa-users"></i></div>
+                    <div class="stat-details">
+                        <div class="stat-num-container">
+                            <span class="stat-number-counter" data-target="1000">0</span>
+                            <span class="stat-plus">+</span>
+                        </div>
+                        <p class="stat-label">منخرط في جمعية براعم التكنولوجيا</p>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="stat-card reveal">
+                    <div class="stat-icon-wrapper"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="stat-details">
+                        <div class="stat-num-container">
+                            <span class="stat-number-counter" data-target="10">0</span>
+                        </div>
+                        <p class="stat-label">مدربين معتمدين بالجمعية</p>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="stat-card reveal">
+                    <div class="stat-icon-wrapper"><i class="fas fa-award"></i></div>
+                    <div class="stat-details">
+                        <div class="stat-num-container">
+                            <span class="stat-number-counter" data-target="25">0</span>
+                            <span class="stat-plus">+</span>
+                        </div>
+                        <p class="stat-label">دورة تدريبية منظمة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supervisor Section -->
+    <section id="supervisor" class="supervisor-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">إشراف وتأطير متميز</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">القيادة الأكاديمية والتدريبية للجمعية</p>
+            </div>
+            
+            <div class="supervisor-card reveal">
+                <div class="supervisor-grid">
+                    <div class="supervisor-img-container">
+                        <img src="assets/images/supervisor.jpg" alt="الأستاذ خديم محمد نورالدين" class="supervisor-img">
+                        <div class="supervisor-glow"></div>
+                    </div>
+                    <div class="supervisor-info">
+                        <span class="supervisor-badge"><i class="fas fa-user-shield"></i> تحت إشراف</span>
+                        <h3>المدرب خديم محمد نورالدين</h3>
+                        <p class="supervisor-bio">طالب مهندس دولة في إلكترو تقني ومدرب مختص في روبوتيك وذكاء اصطناعي ومختص في التنمية البشرية.</p>
+                        
+                        <div class="supervisor-bullets">
+                            <div class="bullet-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>طالب مهندس دولة في تخصص الإلكتروتقني (Electrotechnics)</span>
+                            </div>
+                            <div class="bullet-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>مدرب خبير ومختص في مجالات الروبوتيك والذكاء الاصطناعي للأجيال الصاعدة</span>
+                            </div>
+                            <div class="bullet-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>مختص ومستشار في التنمية البشرية وتطوير القدرات الشخصية والقيادية</span>
+                            </div>
+                        </div>
+
+                        <div class="supervisor-cta">
+                            <a href="https://wa.me/213696760385" target="_blank" class="btn-supervisor-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>تواصل مباشر مع المدرب</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities & Domains Section -->
+    <section id="activities" class="activities-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">مجالات التميز بالجمعية</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">نركز على العلوم الحديثة التي تواكب التطور المتسارع للثورة الصناعية الرابعة</p>
+            </div>
+
+            <div class="activities-grid">
+                <!-- Card 1 -->
+                <div class="activity-card reveal">
+                    <div class="activity-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>علم الروبوتيك</h3>
+                    <p>تصميم وتجميع الروبوتات وبرمجتها للتفاعل مع البيئة المحيطة، مما يدمج بين الميكانيكا، الإلكترونيات والبرمجة.</p>
+                    <div class="activity-glow"></div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="activity-card reveal">
+                    <div class="activity-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>الذكاء الاصطناعي</h3>
+                    <p>تعريف البراعم بمفاهيم الذكاء الاصطناعي، كيفية تدريب الآلات، والتعرف على الصور والبيانات وتطبيقها عملياً.</p>
+                    <div class="activity-glow"></div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="activity-card reveal">
+                    <div class="activity-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>البرمجة والتفكير المنطقي</h3>
+                    <p>تعليم لغات البرمجة الحديثة وبناء التفكير الخوارزمي لتطوير الألعاب، المواقع، وتطبيقات الهاتف الذكي.</p>
+                    <div class="activity-glow"></div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="activity-card reveal">
+                    <div class="activity-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>إنترنت الأشياء والابتكار</h3>
+                    <p>ربط الإلكترونيات (مثل لوحات الأردوينو) بالإنترنت لابتكار أنظمة ذكية تحل مشاكل واقعية.</p>
+                    <div class="activity-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">معرض الأنشطة والصور</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">لحظات حقيقية من إبداعات براعمنا ومشاريعهم وإنجازاتهم الدولية</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Image 1 -->
+                <div class="gallery-item reveal">
+                    <div class="gallery-img-wrapper">
+                        <img src="assets/images/official_logo.jpg" alt="الشعار الرسمي لجمعية براعم التكنولوجيا عشعاشة" class="gallery-img">
+                        <div class="gallery-info">
+                            <span class="gallery-tag">الهوية البصرية</span>
+                            <h4>شعار الجمعية الرسمي</h4>
+                            <p>يمثل الشعار رؤيتنا التكنولوجية في مجالات البرمجة، الروبوتيك والذكاء الاصطناعي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="gallery-item reveal">
+                    <div class="gallery-img-wrapper">
+                        <img src="assets/images/student_programming.jpg" alt="طالبة تبرمج بالجمعية" class="gallery-img">
+                        <div class="gallery-info">
+                            <span class="gallery-tag">العلوم الرقمية</span>
+                            <h4>ورشات البرمجة</h4>
+                            <p>التركيز على بناء الحلول البرمجية وتطوير المواقع والذكاء الاصطناعي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="gallery-item reveal">
+                    <div class="gallery-img-wrapper">
+                        <img src="assets/images/hardware_project.jpg" alt="ورشة عمل روبوتية للطلاب" class="gallery-img">
+                        <div class="gallery-info">
+                            <span class="gallery-tag">روبوتيك</span>
+                            <h4>العمل التطبيقي والمشاريع</h4>
+                            <p>تطوير مشاريع ذكية ملموسة وعرضها في المعارض الوطنية والدولية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration & Contact (CTA) Section -->
+    <section id="contact" class="cta-section">
+        <div class="container cta-container">
+            <div class="cta-card reveal">
+                <div class="cta-grid">
+                    <div class="cta-info">
+                        <h2>انضم إلينا الآن واصنع مستقبلك!</h2>
+                        <p>هل تريد تعلم البرمجة، تصميم الروبوتات، والتحكم بالذكاء الاصطناعي؟ لا تضيع الفرصة وسجل معنا عبر الاستمارة الرسمية.</p>
+                        <div class="cta-actions">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSelx_YuxWbQEA3vVSFFusI6YDuSXDeUBsUZz4vZvL7jv8wKwg/viewform" target="_blank" class="btn-primary glow-btn">
+                                <span>سجل من هنا (Google Form)</span>
+                                <i class="fas fa-file-signature"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <h3>قنوات الاتصال الرسمية</h3>
+                        <p>تواصل مع إدارة الجمعية مباشرة عبر القنوات التالية:</p>
+                        
+                        <div class="contact-links-grid">
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/213696760385" target="_blank" class="contact-btn whatsapp">
+                                <div class="contact-btn-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div class="contact-btn-text">
+                                    <span>واتساب مباشر</span>
+                                    <strong>0696760385</strong>
+                                </div>
+                            </a>
+
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/profile.php?id=61591817600957&locale=fr_FR" target="_blank" class="contact-btn facebook">
+                                <div class="contact-btn-icon"><i class="fab fa-facebook-f"></i></div>
+                                <div class="contact-btn-text">
+                                    <span>صفحتنا على فيسبوك</span>
+                                    <strong>الصفحة الرسمية</strong>
+                                </div>
+                            </a>
+
+                            <!-- Email -->
+                            <a href="mailto:khedimmohammednoureddine@gmail.com" target="_blank" class="contact-btn email">
+                                <div class="contact-btn-icon"><i class="far fa-envelope"></i></div>
+                                <div class="contact-btn-text">
+                                    <span>البريد الإلكتروني</span>
+                                    <strong>khedimmohammednoureddine@gmail.com</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo.jpg" alt="شعار الجمعية" class="footer-logo">
+                <div>
+                    <h4>جمعية براعم التكنولوجيا عشعاشة</h4>
+                    <p>نحو جيل رقمي مبتكر ومبدع في عالم الروبوتيك والذكاء الاصطناعي.</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة &copy; 2026 جمعية براعم التكنولوجيا عشعاشة. تصميم فخم ومطور.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
